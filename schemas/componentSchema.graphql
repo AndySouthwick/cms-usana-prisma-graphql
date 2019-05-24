@@ -1,0 +1,60 @@
+type Component {
+  id: ID!
+  cardIs: Boolean
+  cards: [Card!]
+  heroIs: Boolean
+  heroSlides: [HeroSlide!]
+  textCenterIs: Boolean
+  textCenterSection: TextCenter
+  textLeftIs: Boolean
+  textLeftSection: TextLeft
+  textRightIs: Boolean
+  textRightSection: TextRight
+  page: Page
+  componentOrderNum: Int!
+}
+
+type TextCenter {
+  id: ID!
+  image: String
+  title: String
+  content: String
+  component: Component!
+}
+type TextLeft {
+  id: ID!
+  image: String
+  title: String
+  content: String
+  component: Component!
+}
+type TextRight {
+  id: ID!
+  image: String
+  title: String
+  content: String
+  component: Component!
+}
+
+type HeroSlide {
+  id: ID!
+  image: String
+  title: String
+  subTitle: String
+  buttonText: String
+  buttonClass: String
+  buttonLink: String
+  component: Component!
+}
+
+type Card {
+  id: ID!
+  image: String
+  title: String
+  blobInfo: String
+  buttonText: String
+  buttonClass: String
+  fontStyle: String
+  irRouterLink: Boolean
+  component: Component!
+}

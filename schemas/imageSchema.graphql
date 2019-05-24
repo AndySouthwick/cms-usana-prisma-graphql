@@ -1,0 +1,14 @@
+type Image {
+  id: ID!
+  imageUrl: String
+  altText: String
+  markets: [Market]
+  imageDimensions: String
+  thumbnail: String
+}
+type Market {
+  id: ID!
+  marketCode: MarketCodes
+  images: [Image]
+}
+

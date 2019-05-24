@@ -1,0 +1,62 @@
+type Component {
+  id: ID! @id
+  cardIs: Boolean @default(value: false)
+  cards: [Card]
+  heroIs: Boolean  @default(value: false)
+  heroSlides: [HeroSlide]
+  textCenterIs: Boolean  @default(value: false)
+  textCenterSection: TextCenter
+  textLeftIs: Boolean  @default(value: false)
+  textLeftSection: TextLeft
+  textRightIs: Boolean  @default(value: false)
+  textRightSection: TextRight
+  page: Page!  @relation(link: INLINE)
+  componentOrderNum: Int!
+}
+
+type TextCenter {
+  id: ID! @id
+  title: String
+  image: String
+  content: String
+  component: Component! @relation(link: INLINE)
+}
+
+type TextLeft {
+  id: ID! @id
+  title: String
+  image: String
+  content: String
+  component: Component! @relation(link: INLINE)
+}
+
+type TextRight {
+  id: ID! @id
+  title: String
+  image: String
+  content: String
+  component: Component! @relation(link: INLINE)
+}
+
+type HeroSlide {
+ id: ID! @id
+ image: String
+ title: String
+ subTitle: String
+ buttonText: String
+ buttonClass: String
+ buttonLink: String
+ component: Component! @relation(link: INLINE)
+}
+
+type Card {
+id: ID! @id
+image: String
+title: String
+blobInfo: String
+buttonText: String
+buttonClass: String
+fontStyle: String
+isRouterLink: Boolean
+component: Component! @relation(link: INLINE)
+}

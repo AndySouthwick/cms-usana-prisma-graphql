@@ -1,0 +1,6 @@
+.idea
+docker-compose.yml
+secrets.js
+generated
+node_modules
+public/images

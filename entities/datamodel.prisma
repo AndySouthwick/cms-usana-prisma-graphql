@@ -1,0 +1,16 @@
+type User {
+  id: ID! @id
+  email: String @unique
+  name: String!
+  pages: [Page!]!
+  hashed: String!
+}
+
+type Page {
+  id: ID! @id
+  title: String!
+  published: Boolean! @default(value: false)
+  user: User @relation(link: INLINE)
+  components: [Component]
+  img: String
+}

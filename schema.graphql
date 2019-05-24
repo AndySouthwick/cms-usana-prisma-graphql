@@ -1,0 +1,110 @@
+# import * from "./schemas/componentSchema.graphql"
+# import * from "./schemas/imageSchema.graphql"
+
+
+type Query {
+    allUsers: [User]
+    publishedPages: [Page!]!
+    page(pageId: ID!): Page
+    isAuthenticated:AuthenticatedToken
+    components:[Component]
+    componentsOnPage(pageId: ID! orderBy: SortableField): [Component]
+    pagesByUser(userId: ID!): [Page!]!
+    allImages: [Image]
+    allMarkets: [Market]
+    filterImagesByMarket(orderBy: MarketCodes): [Market]
+    filterImagesByDimensions(filter: String): [Image]
+    imageHasMarkets(imageId: ID!):[Image]
+}
+
+type Mutation {
+  #  user mutations
+
+  loginUser(email: String!, hashed: String!):AuthenticatedToken
+  updateUser(userId: ID!, email: String, hashed: String, name: String): User
+  createUser(name: String! email: String! hashed: String!): User
+
+  #  page mutations
+
+  createDraft(title: String!, userId: ID!): Page
+  publish(pageId: ID!): Page
+  deleteComponent(componentId: ID!): Component
+  orderComponentsOnPage(pageId: ID!, orderNumber: Int, componentId: ID!): Component
+  createComponent(pageId: ID!, heroIs: Boolean, cardIs: Boolean, textCenterIs: Boolean, textLeftIs: Boolean, textRightIs: Boolean, componentOrderNum: Int!):Component
+
+  #  Image Service Mutations
+  updateImage(id: ID!, altText: String, imageSizeOnly: ImageType,  marketCode: MarketCodes): Image
+  createImage(imageUrl: String!, altText: String!, imageDimensions: String, thumbnail: String, imageSizeOnly: ImageType): Image
+  addImageToMarket(imageId: ID! marketCode: MarketCodes): [Image]
+  deleteImage(id: ID!): Image
+
+  #  component mutations
+
+  createTextLeft(componentId: ID!, image: String, content: String, title: String): TextLeft
+  updateTextLeft(id: ID! image: String, content: String, title: String): TextLeft
+  deleteTextLeft(id: ID!, componentId: ID!): TextLeft
+
+  createTextRight(componentId: ID!, image: String, content: String, title: String): TextRight
+  updateTextRight(id: ID! image: String, content: String, title: String): TextLeft
+  deleteTextRight(id: ID!, componentId: ID!): TextRight
+
+  createTextCenter(componentId: ID!, image: String, content: String, title: String): TextCenter
+  updateTextCenter(id: ID! image: String, content: String, title: String): TextCenter
+  deleteTextCenter(id: ID!, componentId: ID!): TextCenter
+
+  createHeroSlide(componentId: ID!, image: String, title: String, subTitle: String, buttonText: String, buttonClass: String, buttonLink: String): HeroSlide
+  updateHeroSlide(id: ID!): HeroSlide
+  deleteHeroSlide(id: ID!, componentId: ID!): HeroSlide
+
+  createCard(componentId: ID!, image: String, title: String, blobInfo: String, buttonText: String, buttonLink: String, isRouterLink: Boolean buttonClass: String): Card
+  deleteCard(id: ID!, componentId: ID!): Card
+}
+
+type User {
+  id: ID!
+  email: String
+  name: String!
+  pages: [Page!]!
+  hashed: String
+}
+
+type Page {
+  id: ID!
+  title: String!
+  published: Boolean!
+  user: User
+  components: [Component]
+}
+
+enum SortableField {
+  componentOrderNum_ASC
+  componentOrderNum_DESC
+}
+
+type AuthenticatedToken {
+  token: String
+}
+
+enum MarketCodes {
+  EN_US
+  ES_US
+  CH_US
+}
+
+enum ImageType {
+  Cover
+  Card
+  Hero
+  Product
+}
+#type Image {
+#  id: ID!
+#  imageUrl: String
+#  altText: String
+#  markets: [Market]
+#}
+#type Market {
+#  id: ID!
+#  marketCode: MarketCodes
+#  images: [image]
+#}
