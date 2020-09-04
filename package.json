@@ -13,7 +13,7 @@
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "express": "^4.16.4",
-    "express-fileupload": "^1.1.4",
+    "express-fileupload": "^1.1.10",
     "graphql-import": "^0.7.1",
     "graphql-shield": "^5.3.5",
     "graphql-yoga": "^1.17.4",
