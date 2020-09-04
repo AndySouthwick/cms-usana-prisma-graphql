@@ -373,6 +373,12 @@ busboy@^0.2.14:
     dicer "0.2.5"
     readable-stream "1.1.x"
 
+busboy@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/busboy/-/busboy-0.3.1.tgz#170899274c5bf38aae27d5c62b71268cd585fd1b"
+  dependencies:
+    dicer "0.3.0"
+
 bytes@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-3.0.0.tgz#d32815404d689699f85a4ea4fa8755dd13a96048"
@@ -559,6 +565,12 @@ dicer@0.2.5:
     readable-stream "1.1.x"
     streamsearch "0.1.2"
 
+dicer@0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/dicer/-/dicer-0.3.0.tgz#eacd98b3bfbf92e8ab5c2fdb71aaac44bb06b872"
+  dependencies:
+    streamsearch "0.1.2"
+
 dotenv@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-0.4.0.tgz#f6fb351363c2d92207245c737802c9ab5ae1495a"
@@ -610,11 +622,11 @@ expand-template@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/expand-template/-/expand-template-2.0.3.tgz#6e14b3fcee0f3a6340ecb57d2e8918692052a47c"
 
-express-fileupload@^1.1.4:
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/express-fileupload/-/express-fileupload-1.1.4.tgz#a4e7900bd2b63d88c6158d7c8202a370d1e839cf"
+express-fileupload@^1.1.10:
+  version "1.1.10"
+  resolved "https://registry.yarnpkg.com/express-fileupload/-/express-fileupload-1.1.10.tgz#c4a223b2020e5175498ab684566fc430ec9c8b15"
   dependencies:
-    busboy "^0.2.14"
+    busboy "^0.3.1"
 
 express@^4.16.3, express@^4.16.4:
   version "4.16.4"
